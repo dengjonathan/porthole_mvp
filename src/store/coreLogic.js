@@ -1,13 +1,12 @@
 import {List, Map} from 'immutable';
+import * as Promise from 'bluebird';
+import {readFile} from 'fs';
+const readFileAsync = Promise.promisify(readFile);
 
-/*
-State Schema:
-store: {
-  articles: [Article, Article, Article],
-  currentIndex: num,
-  currentArticle: num
-}
- */
+//stub to rebuild when actually getting articles from database
+export function getArticles () {
+  return readFileAsync('../../articles.json');
+};
 
 export function nextWord(state) {
   const currentIndex = state.get('currentIndex');
@@ -18,6 +17,6 @@ export function changeArticle(state, index) {
   return state.set('articleIndex', index);
 }
 
-export function loadArticles(state, articlesArray) {
-
-}
+export function loadArticles(state, articles) {
+  return state.set('articles', List.of(articles));
+};

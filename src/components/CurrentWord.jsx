@@ -3,9 +3,7 @@ import React from 'react';
 import Word from './Word';
 
 const CurrentWord = ({word}) => (
-  <div className="currentWord">
-    <Word word={word} />
-  </div>
+  <span className="CurrentWord"><Word word={word} /></span>
 );
 
 export default CurrentWord;

@@ -1,11 +1,6 @@
 import { createStore } from 'redux';
 import reducer from './reducer';
 
-export const store = makeStore();
+const store = createStore(reducer);
 
-store.dispatch({
-  type: 'SET_ARTICLES',
-  articles: require('./entries.json')
-});
-
-console.log(store.getState());
+export default store;
