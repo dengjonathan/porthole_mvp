@@ -1,12 +1,14 @@
 import {List, Map} from 'immutable';
 import * as Promise from 'bluebird';
-import {readFile} from 'fs';
-const readFileAsync = Promise.promisify(readFile);
+
+//FIXME: for some reason readFile in certain cricumstances is undefined
+// import {readFile} from 'fs';
+// const readFileAsync = Promise.promisify(readFile);
 
 //stub to rebuild when actually getting articles from database
-export function getArticles () {
-  return readFileAsync('../../articles.json');
-};
+// export function getArticles () {
+//   return readFileAsync('../../articles.json');
+//};
 
 export function nextWord(state) {
   const currentIndex = state.get('currentIndex');
