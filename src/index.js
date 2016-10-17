@@ -1,11 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App';
-import './index.css';
+import {Connect} from 'react-redux';
+
+import AppContainer from './components/App';
 import {store} from './store/store.js';
 
+// TODO: refactor this out of this file
+import './index.css';
+
 ReactDOM.render(
-  <App />,
+  <AppContainer />,
   document.getElementById('root')
 );
 

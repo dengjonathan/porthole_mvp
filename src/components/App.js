@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import {Provider} from 'react-redux';
 import '../App.css'; //FIXME place all styles in assets
 import Word from './Word';
 import CurrentWord from './CurrentWord';
+import LineContainer from './Line';
+import store from '../store/store.js';
 
 class App extends Component {
   render() {
@@ -10,12 +13,20 @@ class App extends Component {
         <div className="App-header">
           <h2>Welcome to Porthole</h2>
         </div>
-        <Word word='previous' />
-        <CurrentWord word='current' />
-        <Word word='next' />
+        <LineContainer />
       </div>
     );
   }
 }
 
-export default App;
+class AppContainer extends Component {
+  render() {
+    return (
+      <Provider store={store} >
+        <App />
+      </Provider>
+    );
+  }
+}
+
+export default AppContainer;
