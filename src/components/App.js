@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {Provider} from 'react-redux';
 
 import PortholeContainer from './Porthole';
+import ArticlesContainer from './Articles';
+import Footer from './Footer';
 import store from '../store/store.js';
 
 class App extends Component {
@@ -14,6 +16,10 @@ class App extends Component {
         <Provider store={store} >
           <PortholeContainer />
         </Provider>
+        <Provider store={store} >
+          <ArticlesContainer />
+        </Provider>
+        <Footer />
       </div>
     );
   }

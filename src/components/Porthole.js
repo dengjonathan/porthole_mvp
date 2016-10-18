@@ -7,10 +7,6 @@ import store from '../store/store';
 
 class Porthole extends Component {
 
-  constructor(props) {
-    super(props)
-  }
-
   onPlay() {
     store.dispatch({type: 'UNPAUSE'});
     this.playArticle.call(this);
