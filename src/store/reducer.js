@@ -1,5 +1,5 @@
 import {INITIAL_STATE} from '../INITIAL_STATE';
-import {nextWord, changeArticle, loadArticles, pause, unPause} from './coreLogic';
+import {nextWord, changeArticle, loadArticles, pause, unPause, setIndex} from './coreLogic';
 
 export default function reducer (state = INITIAL_STATE, action) {
   console.log(action.type);
@@ -15,6 +15,8 @@ export default function reducer (state = INITIAL_STATE, action) {
       return pause(state);
     case 'UNPAUSE':
       return unPause(state);
+    case 'SET_INDEX_0':
+      return setIndex(state, 0);
   }
   console.warn('Action type not found- check your action.type in dispatch');
   return state;

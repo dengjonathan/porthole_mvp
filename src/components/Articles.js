@@ -6,6 +6,8 @@ import {getNYT} from '../utils/utils';
 
 import Article from './Article';
 
+import '../assets/Articles.css';
+
 class Articles extends Component {
 
   componentDidMount() {

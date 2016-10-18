@@ -1,0 +1,9 @@
+.articles {
+  float: left;
+  width: 30%;
+  height: 1000px;
+  margin: 20px;
+  padding: 10px;
+  overflow-y: scroll;
+  box-shadow: 3px 1px 1px #616161;
+}

@@ -1,5 +1,7 @@
 .App {
-  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  background-color: #424242;
+  color: white;
 }
 
 .App-logo {
@@ -9,13 +11,15 @@
 
 .App-header {
   background-color: #222;
-  height: 150px;
+  height: 70px;
   padding: 20px;
   color: white;
+  box-shadow: 5px 5px 5px #616161;
 }
 
 .App-intro {
   font-size: large;
+  text-transform: uppercase;
 }
 
 @keyframes App-logo-spin {

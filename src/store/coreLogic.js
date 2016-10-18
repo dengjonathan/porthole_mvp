@@ -31,3 +31,7 @@ export function pause(state) {
 export function unPause(state) {
   return state.set('paused', false);
 }
+
+export function setIndex(state, index) {
+  return state.set('currentIndex', index);
+}

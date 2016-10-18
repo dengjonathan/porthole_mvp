@@ -6,20 +6,22 @@ import ArticlesContainer from './Articles';
 import Footer from './Footer';
 import store from '../store/store.js';
 
+import '../assets/App.css';
+
 class App extends Component {
   render() {
     return (
       <div className="App">
         <div className="App-header">
-          <h2>Welcome to Porthole</h2>
+          <h2 className="App-intro">Porthole</h2>
+          <Footer />
         </div>
-        <Provider store={store} >
-          <PortholeContainer />
-        </Provider>
         <Provider store={store} >
           <ArticlesContainer />
         </Provider>
-        <Footer />
+        <Provider store={store} >
+          <PortholeContainer />
+        </Provider>
       </div>
     );
   }

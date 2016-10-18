@@ -1,0 +1,18 @@
+.line {
+  font-size: 2em;
+  text-align: center;
+  color: gray;
+  border-style: double;
+  border-color: black;
+  border-width: 2px;
+  border-radius: 40px;
+  margin-left: 35%;
+  padding: 20px;
+  box-shadow: 5px 5px 5px #616161;
+  background-color: #F1F1D4;
+}
+
+.line .CurrentWord {
+  font-weight: 700;
+  color: black;
+}
