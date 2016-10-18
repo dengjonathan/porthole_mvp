@@ -7,17 +7,18 @@ import Article from './Article';
 
 class Articles extends Component {
 
-  changeArticle() {
-
+  changeArticle(index) {
+    store.dispatch({type: 'CHANGE_ARTICLE', index: index});
   }
 
   render() {
     const articles = this.props.articles
       .slice(0, 3)
       .map((article, index) => (<Article
+        key={index}
         article={article}
         index={index}
-        onClick={this.changeArticle.bind(this)}
+        onClick={this.changeArticle}
       />));
 
     return(

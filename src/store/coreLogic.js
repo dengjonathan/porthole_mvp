@@ -16,7 +16,8 @@ export function nextWord(state) {
 }
 
 export function changeArticle(state, index) {
-  return state.set('articleIndex', index);
+  return state.set('currentArticle', index);
+  //TODO: when changing article set index back to 0;
 }
 
 export function loadArticles(state, articles) {

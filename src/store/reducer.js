@@ -3,6 +3,7 @@ import {nextWord, changeArticle, loadArticles, pause, unPause} from './coreLogic
 
 export default function reducer (state = INITIAL_STATE, action) {
   console.log(action.type);
+  console.log(action);
   switch(action.type) {
     case 'NEXT_WORD':
       return nextWord(state);

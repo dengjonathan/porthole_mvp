@@ -17,6 +17,7 @@ class Porthole extends Component {
   }
 
   playArticle () {
+    //TODO: change to not access state directly
     const state = store.getState();
     const index = state.get('currentIndex');
     const articleIndex = state.get('currentArticle');
@@ -30,7 +31,8 @@ class Porthole extends Component {
   }
 
   render() {
-    const words = this.props.article.text.split(' ');
+    console.log(this.props.articles);
+    const words = this.props.articles.get(this.props.currentArticle).text.split(' ');
     const index = this.props.index;
     return (
       <div>
@@ -44,7 +46,8 @@ class Porthole extends Component {
 
 const mapStateToProps = state => ({
   index: state.get('currentIndex'),
-  article: state.get('articles').get(state.get('currentArticle'))
+  currentArticle: state.get('currentArticle'),
+  articles: state.get('articles')
 });
 
 const PortholeContainer = connect(mapStateToProps)(Porthole);
