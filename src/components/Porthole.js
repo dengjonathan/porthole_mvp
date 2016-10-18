@@ -19,7 +19,6 @@ class Porthole extends Component {
   }
 
   onPlay() {
-    //FIXME: play is being kind of wonky;
     store.dispatch({type: 'UNPAUSE'});
     this.playArticle.call(this);
   }
@@ -30,17 +29,30 @@ class Porthole extends Component {
 
   playArticle () {
     if (this.props.index < this.article.text.length && !this.props.paused) {
+      store.dispatch({type: 'NEXT_WORD'});
       setTimeout(() => {
-        store.dispatch({type: 'NEXT_WORD'});
         this.playArticle.call(this);
       }, this.props.speed);
-    } else {
+    } else if (this.props.index >= this.article.text.length) {
       this.onPause();
     }
   }
 
   goToBeginning () {
     store.dispatch({type: 'SET_INDEX_0'});
+  }
+
+  toggleLike() {
+    store.dispatch({type: 'TOGGLE_LIKE'})
+  }
+
+  toggleUnLike () {
+    store.dispatch({type: 'TOGGLE_UNLIKE'})
+  }
+
+  changeSpeed (wpm) {
+    const speed = 60 * 1000 / wpm; //convert words per minute to delay time in ms
+    store.dispatch({type: 'CHANGE_SPEED', speed: speed})
   }
 
   render() {
@@ -53,9 +65,14 @@ class Porthole extends Component {
         <button onClick={this.onPlay.bind(this)}>▶ Play</button>
         <button onClick={this.onPause.bind(this)}>⏸ Pause</button>
         <button onClick={this.goToBeginning}>Go To Beginning</button>
-        <Buttons />
+        <Buttons
+          liked={!!this.article.liked}
+          unLiked={!!this.article.unLiked}
+          toggleLike={this.toggleLike}
+          toggleUnLike={this.toggleUnLike}
+          changeSpeed={this.changeSpeed}
+        />
         <h3>{title}</h3>
-        <img src={this.article.pic} />
         <h4>{this.article.byline}</h4>
         <h4>{this.article.url}</h4>
         <Summary text={this.article.text} index={index}/>

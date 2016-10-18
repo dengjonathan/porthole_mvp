@@ -1,0 +1,7 @@
+.button button:active {
+  background-color: #82B1FF;
+}
+
+.button .selected {
+  background-color: black;
+}

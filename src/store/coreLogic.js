@@ -35,3 +35,21 @@ export function unPause(state) {
 export function setIndex(state, index) {
   return state.set('currentIndex', index);
 }
+
+export function changeSpeed(state, speed) {
+  return state.set('speed', speed);
+}
+
+export function toggleLike(state) {
+  const current = state.get('currentArticle');
+  const article = state.getIn(['articles', current]);
+  article.liked =  article.liked ? false : true;
+  return state.setIn(['articles', current], article);
+}
+
+export function toggleUnLike(state) {
+  const current = state.get('currentArticle');
+  const article = state.getIn(['articles', current]);
+  article.unLiked =  article.unLiked ? false : true;
+  return state.setIn(['articles', current], article);
+}
