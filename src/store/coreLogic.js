@@ -22,3 +22,11 @@ export function changeArticle(state, index) {
 export function loadArticles(state, articles) {
   return state.set('articles', List.of(articles));
 };
+
+export function pause(state) {
+  return state.set('paused', true);
+}
+
+export function unPause(state) {
+  return state.set('paused', false);
+}

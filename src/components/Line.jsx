@@ -50,8 +50,8 @@ class Line extends Component {
         <span> </span>
         <Word word={words[index + 2]}/>
       </p>
-      <button onClick={this.onPlay.bind(this)}>Play</button>
-      <button onClick={this.onPause.bind(this)}>Pause</button>
+      <button onClick={this.onPlay.bind(this)}>▶ Play</button>
+      <button onClick={this.onPause.bind(this)}>⏸ Pause</button>
      </div>
     );
   }

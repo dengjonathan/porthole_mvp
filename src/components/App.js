@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {Provider} from 'react-redux';
-import '../App.css'; //FIXME place all styles in assets
 import Word from './Word';
 import CurrentWord from './CurrentWord';
 import LineContainer from './Line';
