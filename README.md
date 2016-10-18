@@ -11,5 +11,5 @@ To run on your local machine run the following commands:
 
 This will start the create_react_app dev server script.
 
-![]('http://www.giphy.com/gifs/3o7TKoKqnCcj8lYYEM/giphy.gif')
+![]('http://www.giphy.com/gifs/3o7TKoKqnCcj8lYYEM/giphy.gif?raw=true')
 
