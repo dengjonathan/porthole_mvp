@@ -2,6 +2,7 @@ import {INITIAL_STATE} from '../INITIAL_STATE';
 import {nextWord, changeArticle, loadArticles} from './coreLogic';
 
 export default function reducer (state = INITIAL_STATE, action) {
+  console.log(action.type);
   switch(action.type) {
     case 'NEXT_WORD':
       return nextWord(state);
