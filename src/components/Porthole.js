@@ -7,6 +7,13 @@ import store from '../store/store';
 
 class Porthole extends Component {
 
+  constructor(props) {
+    super(props);
+    Object.defineProperty(this, 'article', {
+      get: () => this.props.articles.get(this.props.currentArticle)
+    })
+  }
+
   onPlay() {
     store.dispatch({type: 'UNPAUSE'});
     this.playArticle.call(this);
@@ -17,25 +24,21 @@ class Porthole extends Component {
   }
 
   playArticle () {
-    //TODO: change to not access state directly
-    const state = store.getState();
-    const index = state.get('currentIndex');
-    const articleIndex = state.get('currentArticle');
-    const article = state.get('articles').get(articleIndex);
-    if (index < article.text.length && !state.get('paused')) {
+    if (this.props.index < this.article.text.length && !this.props.paused) {
       setTimeout(() => {
         store.dispatch({type: 'NEXT_WORD'});
         this.playArticle.call(this);
-      }, state.get('speed'));
+      }, this.props.speed);
     }
   }
 
   render() {
-    console.log(this.props.articles);
-    const words = this.props.articles.get(this.props.currentArticle).text.split(' ');
+    const title = this.article.title;
+    const words = this.article.text.split(' ');
     const index = this.props.index;
     return (
       <div>
+        <h3>{title}</h3>
         <Line index={index} words={words} />
         <button onClick={this.onPlay.bind(this)}>▶ Play</button>
         <button onClick={this.onPause.bind(this)}>⏸ Pause</button>
@@ -47,7 +50,9 @@ class Porthole extends Component {
 const mapStateToProps = state => ({
   index: state.get('currentIndex'),
   currentArticle: state.get('currentArticle'),
-  articles: state.get('articles')
+  articles: state.get('articles'),
+  paused: state.get('paused'),
+  speed: state.get('speed')
 });
 
 const PortholeContainer = connect(mapStateToProps)(Porthole);
