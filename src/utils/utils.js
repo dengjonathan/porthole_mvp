@@ -1,7 +1,7 @@
 var axios = require('axios');
 
 //TODO: get ny times api key out of here!
-
+const NYT_URL = 'https://api.nytimes.com/svc/topstories/v2/world.json?api-key=29e640f958d54b019d58392b1e8bb3a0'
 
 // converts results from NYT api into object shape accepted by this app
 const convertNYT = (result) => {
@@ -15,8 +15,6 @@ const convertNYT = (result) => {
     pic: pic
   }
 };
-
-const NYT_URL = 'https://api.nytimes.com/svc/topstories/v2/world.json?api-key=29e640f958d54b019d58392b1e8bb3a0'
 
 export function getNYT() {
   return axios.get(NYT_URL)
