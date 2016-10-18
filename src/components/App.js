@@ -13,8 +13,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <h2 className="App-intro">Porthole</h2>
-          <Footer />
+          <h2><span className="App-intro">porthole  </span><span className="tagline">for important things</span></h2>
         </div>
         <Provider store={store} >
           <ArticlesContainer />
@@ -22,6 +21,7 @@ class App extends Component {
         <Provider store={store} >
           <PortholeContainer />
         </Provider>
+            <Footer />
       </div>
     );
   }
