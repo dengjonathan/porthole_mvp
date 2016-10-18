@@ -11,6 +11,6 @@ To run on your local machine run the following commands:
 
 This will start the create_react_app dev server script.
 
-![giphy]('./src/assets/giphy.gif')
+<img src='http://www.giphy.com/gifs/3o7TKoKqnCcj8lYYEM'></img>
 
 
