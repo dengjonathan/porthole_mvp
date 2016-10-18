@@ -14,7 +14,6 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <h2 className="App-intro">Porthole</h2>
-          <Footer />
         </div>
         <Provider store={store} >
           <ArticlesContainer />
@@ -22,6 +21,7 @@ class App extends Component {
         <Provider store={store} >
           <PortholeContainer />
         </Provider>
+        <Footer />
       </div>
     );
   }
