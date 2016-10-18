@@ -2,10 +2,20 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
 import store from '../store/store';
+import {getNYT} from '../utils/utils';
 
 import Article from './Article';
 
 class Articles extends Component {
+
+  componentDidMount() {
+    this.getArticles();
+  }
+
+  getArticles() {
+    getNYT()
+      .then(articles => store.dispatch({type: 'LOAD_ARTICLES', articles: articles}))
+  }
 
   changeArticle(index) {
     store.dispatch({type: 'CHANGE_ARTICLE', index: index});
@@ -13,7 +23,7 @@ class Articles extends Component {
 
   render() {
     const articles = this.props.articles
-      .slice(0, 3)
+      .slice(0, 10)
       .map((article, index) => (<Article
         key={index}
         article={article}

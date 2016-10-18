@@ -16,12 +16,12 @@ export function nextWord(state) {
 }
 
 export function changeArticle(state, index) {
-  return state.set('currentArticle', index);
-  //TODO: when changing article set index back to 0;
+  return state.set('currentArticle', index)
+    .set('currentIndex', 0);
 }
 
 export function loadArticles(state, articles) {
-  return state.set('articles', List.of(articles));
+  return state.set('articles', List(articles));
 };
 
 export function pause(state) {

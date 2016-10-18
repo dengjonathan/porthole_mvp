@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {List} from 'immutable';
 
 import Line from './Line';
+import Buttons from './Buttons';
 import store from '../store/store';
 
 class Porthole extends Component {
@@ -15,6 +16,7 @@ class Porthole extends Component {
   }
 
   onPlay() {
+    //FIXME: play is being kind of wonky;
     store.dispatch({type: 'UNPAUSE'});
     this.playArticle.call(this);
   }
@@ -42,6 +44,7 @@ class Porthole extends Component {
         <Line index={index} words={words} />
         <button onClick={this.onPlay.bind(this)}>▶ Play</button>
         <button onClick={this.onPause.bind(this)}>⏸ Pause</button>
+        <Buttons />
      </div>
     );
   }
