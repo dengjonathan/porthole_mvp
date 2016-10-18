@@ -10,3 +10,7 @@ To run on your local machine run the following commands:
 `npm start:dev`
 
 This will start the create_react_app dev server script.
+
+![giphy]('./src/assets/giphy.gif')
+
+
