@@ -20,15 +20,19 @@ class Porthole extends Component {
 
   onPlay() {
     store.dispatch({type: 'UNPAUSE'});
-    this.playArticle.call(this);
+    this.playArticle.call(this, true);
   }
 
   onPause () {
     store.dispatch({type: 'PAUSE'});
   }
 
-  playArticle () {
-    if (this.props.index < this.article.text.length && !this.props.paused) {
+  playArticle (force=false) {
+    let pauseCheck = this.props.paused;
+    if (force) {
+      pauseCheck = false;
+    }
+    if (this.props.index < this.article.text.length && !pauseCheck) {
       store.dispatch({type: 'NEXT_WORD'});
       setTimeout(() => {
         this.playArticle.call(this);
