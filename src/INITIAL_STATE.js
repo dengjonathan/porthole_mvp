@@ -2,6 +2,7 @@ import {List, Map} from 'immutable';
 
 export const INITIAL_STATE = Map({
   speed: 200,
+  paused: false,
   articles: List([{
     title: "Major Attack on ISIS Starts in Iraq; ‘Decisive Moment’ Seen",
     text: "Kurdish forces advanced on villages near Mosul, the start of a campaign to reclaim Iraq’s second-largest city from Islamic State militants who seized it more than two years ago. U.S. warplanes are providing air support for the operation, which could take months and involve nearly 30,000 Iraqi and Kurdish troops."
